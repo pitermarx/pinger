@@ -25,3 +25,4 @@ module LatencyData
             | _, Some l -> (calculate l now) :: data
 
     let getData () = data
+    let clear () = data <- []

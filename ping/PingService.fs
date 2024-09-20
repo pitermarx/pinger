@@ -7,7 +7,7 @@ module Pinger
 
     let serverUrl = "google.com"
     let pingIntervalSeconds = 5
-    let private pingServer (log: ILogger) =
+    let private doPing (log: ILogger) =
         use ping = new Ping()
         try
             let reply = ping.Send(serverUrl)
@@ -29,6 +29,6 @@ module Pinger
         override _.ExecuteAsync(ct: CancellationToken) : Task =
             task {
                 while not ct.IsCancellationRequested do
-                    pingServer log |> LatencyData.update
+                    doPing log |> LatencyData.update
                     do! Task.Delay(pingIntervalSeconds * 1000, ct)
             }
