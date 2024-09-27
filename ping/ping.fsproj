@@ -5,12 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Models.fs" />
+    <Compile Include="Sql.fs" />
+    <Compile Include="LatencyDb.fs" />
     <Compile Include="LatencyData.fs" />
     <Compile Include="PingService.fs" />
+    <Compile Include="Routes.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Falco" Version="4.*" />
+    <PackageReference Include="Oxpecker" Version="0.14.1" />
+    <PackageReference Include="Oxpecker.HTMX" Version="0.1.2" />
+    <PackageReference Include="Oxpecker.ViewEngine" Version="0.14.0" />
+    <PackageReference Include="System.Data.Sqlite" Version="1.0.118" />
   </ItemGroup>
 </Project>
